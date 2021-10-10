@@ -1,5 +1,5 @@
 # BoxerGram
-
+![Boxinggram](/images/Boxergram.gif)
 ## Date: 10/10/2021
 
 ### By: Brandon Hernandez
@@ -19,6 +19,7 @@
 * Sequelize
 * React Bootstrap
 ***
+![PERN](https://repository-images.githubusercontent.com/141744474/1ce68080-769e-11ea-8f62-d743905db95e)
 
 ### ***Getting Started***
 
