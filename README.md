@@ -24,7 +24,7 @@
 ### ***Getting Started***
 
 
-##### A Trello board was used to keep track of development progress and can be viewed [here](URL).
+##### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/XMeSMYPD/boxergram).
 ##### The project itself was deployed and can be viewed [here](URL).
 ***
 
