@@ -8,16 +8,37 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User.hasMany(models.Post, { foreignKey: 'userId' })
+      User.hasMany(models.Event, { foreignKey: 'userId' })
+      User.hasMany(models.Comment, { foreignKey: 'userId' })
     }
   }
   User.init(
     {
-      firstName: DataTypes.STRING,
-      lastName: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password_digest: DataTypes.STRING,
-      profile_picture: DataTypes.STRING
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+          isEmail: true
+        }
+      },
+      password_digest: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      profile_picture: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,

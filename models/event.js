@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Event.belongsTo(models.User, { foreignKey: 'userId' })
+      Event.hasMany(models.Comment, { foreignKey: 'eventId' })
     }
   }
   Event.init(
@@ -16,7 +17,14 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       description: DataTypes.STRING,
       location: DataTypes.STRING,
-      comments: DataTypes.STRING
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          id: 'id'
+        }
+      }
     },
     {
       sequelize,

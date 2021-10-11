@@ -1,4 +1,7 @@
 'use strict'
+
+const { sequelize } = require('../models')
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('posts', {
@@ -23,8 +26,13 @@ module.exports = {
       dislikes: {
         type: Sequelize.INTEGER
       },
-      comments: {
-        type: Sequelize.STRING
+      userId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          id: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

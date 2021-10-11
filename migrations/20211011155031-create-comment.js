@@ -1,20 +1,14 @@
 'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('events', {
+    await queryInterface.createTable('comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.STRING
-      },
-      location: {
+      comment: {
         type: Sequelize.STRING
       },
       userId: {
@@ -22,6 +16,22 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'users',
+          id: 'id'
+        }
+      },
+      postId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'posts',
+          id: 'id'
+        }
+      },
+      eventId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'events',
           id: 'id'
         }
       },
@@ -36,6 +46,6 @@ module.exports = {
     })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('events')
+    await queryInterface.dropTable('comments')
   }
 }
