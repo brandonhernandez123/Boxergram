@@ -25,6 +25,9 @@ const GetOneUser = async (req, res) => {
       include: [
         {
           model: Post
+        },
+        {
+          model: Event
         }
       ]
     })
