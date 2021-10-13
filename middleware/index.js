@@ -40,6 +40,7 @@ const stripToken = (req, res, next) => {
       res.locals.token = token
       return next()
     }
+    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
   } catch (error) {
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
   }
