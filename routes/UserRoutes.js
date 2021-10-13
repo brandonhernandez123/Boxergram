@@ -1,6 +1,7 @@
 const Router = require('express').Router()
 
 const UserController = require('../controllers/UserController')
+const middleware = require('../middleware')
 
 // Router.get('/allprofiles', UserController.GetAllUsers)
 Router.post('/signup', UserController.SignUp)
