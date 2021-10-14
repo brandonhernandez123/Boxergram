@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/auth'
 import Feed from './pages/Feed'
+import Event from './pages/Events'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
     false || localStorage.getItem('authenticated')
@@ -54,6 +55,11 @@ function App() {
           component={(props) => <Feed {...props} user={user} />}
         />
         <Route exact path="/register" component={Register} />
+        <Route
+          exact
+          path="/events"
+          component={(props) => <Event {...props} user={user} />}
+        />
       </Switch>
     </div>
   )
