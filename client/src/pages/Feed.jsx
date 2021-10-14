@@ -22,10 +22,27 @@ return(
       
         {posts.map((post) =>(
     <div className="postcard">
-        <h4>{post.title}</h4>
-        <h6>posted by @{post.User.first_name} {post.User.last_name}</h6>
-        <Image  className="postimage" src={`${post.image}`} alt={post.title} />
-        <p>{post.caption}</p>
+        <Row xs={1} md={1} className="g-4">
+  {Array.from({ length: 1 }).map((_, idx) => (
+    <Col>
+      <Card>
+        <Card.Img variant="top" src={`${post.image}`} />
+        <Card.Body>
+          <Card.Title> posted by {post.User.first_name} {post.User.last_name}</Card.Title>
+          <Card.Text>
+            {post.caption}
+          </Card.Text>
+        </Card.Body>
+        <Button>Like</Button>
+      <p>Likes:{post.likes}</p>
+        <Button>Dislike</Button>
+        <p>Dislikes: {post.dislikes}</p>
+      </Card>
+      
+    </Col>
+    
+  ))}
+</Row>
     </div>
          
         ))}
