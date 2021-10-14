@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/auth'
+import Feed from './pages/Feed'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
     false || localStorage.getItem('authenticated')
@@ -37,6 +38,7 @@ function App() {
 
       <Switch>
         <Route
+          exact
           path="/login"
           component={(props) => (
             <Login
@@ -45,6 +47,11 @@ function App() {
               toggleAuthenticated={toggleAuthenticated}
             />
           )}
+        />
+        <Route
+          exact
+          path="/feed"
+          component={(props) => <Feed {...props} user={user} />}
         />
         <Route exact path="/register" component={Register} />
       </Switch>

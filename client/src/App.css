@@ -97,6 +97,20 @@ h2 {
   color: #61dafb;
 }
 
+
+.postcard {
+  background-color: white;
+  color: black;
+  width: 600px;
+  justify-content: center;
+  margin: 0 auto;
+  
+}
+
+.postimage {
+  width: 600px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

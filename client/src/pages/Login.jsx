@@ -25,6 +25,7 @@ const Login = (props) => {
     return(
 <div>
     <h2>Welcome to BoxerGram</h2>
+    <p> Not Signed up yet? click <Nav.Link href='/register'>Here</Nav.Link> </p>
         
 <div className='login'>
     <h2>Sign in</h2>
