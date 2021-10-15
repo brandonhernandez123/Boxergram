@@ -2,14 +2,7 @@ const { User, Post, Event, Comment } = require('../models')
 
 const GetAllEvents = async (req, res) => {
   try {
-    const events = await Event.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['first_name', 'last_name', 'profile_picture']
-        }
-      ]
-    })
+    const events = await Event.findAll()
     res.send(events)
   } catch (error) {
     throw error
@@ -27,14 +20,7 @@ const NewEvent = async (req, res) => {
 
 const GetOneEvent = async (req, res) => {
   try {
-    const EventandUser = await Event.findByPk(req.params.event_id, {
-      include: [
-        {
-          model: User,
-          attributes: ['first_name', 'last_name', 'profile_picture']
-        }
-      ]
-    })
+    const EventandUser = await Event.findByPk(req.params.event_id)
     res.send(EventandUser)
   } catch (error) {
     throw error

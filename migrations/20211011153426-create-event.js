@@ -11,22 +11,14 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      image: {
-        type: Sequelize.STRING
-      },
       description: {
         type: Sequelize.STRING
       },
       location: {
         type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.STRING,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          id: 'id'
-        }
+      image: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

@@ -51,7 +51,7 @@ const handleSubmit = async (e) => {
 
     <input type="email" name="email" value={formValues.email}  placeholder="Email" onChange={handleChange}/>
     <p>Upload Profile Picture</p>
-    <input type='file' name="profile_picture" value={formValues.profile_picture} placeholder="Upload profile picture" />
+    <input type='text' name="profile_picture" value={formValues.profile_picture} onChange={handleChange} placeholder="Host profile pic on imgur and paste image address link here" />
     
     <input type="password" name="password" value={formValues.password} placeholder="Password" onChange={handleChange}/>
     <button type="submit"  className="submit">Register</button>

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { CheckSession } from './services/auth'
 import Feed from './pages/Feed'
 import Event from './pages/Events'
+import TopNav from './components/TopNav'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
     false || localStorage.getItem('authenticated')
@@ -35,7 +36,12 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Navigation />
+      <TopNav
+        authenticated={authenticated}
+        user={user}
+        handleLogOut={handleLogOut}
+      />
+      <Navigation user={user} authenticated={authenticated} />
 
       <Switch>
         <Route

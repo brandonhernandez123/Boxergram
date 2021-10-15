@@ -18,7 +18,6 @@ const Feed = (props) => {
     },[])
 return(
     <div>
-        <h1>BoxerGram Feed</h1>
       
         {posts.map((post) =>(
     <div className="postcard">
