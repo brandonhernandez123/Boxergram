@@ -27,7 +27,7 @@ const Navigation = ({user, authenticated}) => {
           </Nav>
         </Container>
       </Navbar>
-      <NewPost show={modalShow}user={user} onHide={() => setModalShow(false)} />
+      {authenticated ? <NewPost show={modalShow}user={user} onHide={() => setModalShow(false)} /> : ''}
       </footer>
     )
 }

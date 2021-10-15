@@ -15,7 +15,8 @@ const [newpost, Setnewpost] = useState({
 })
 
 const handleSubmit = async () => {
-    const res = Axios.post(`${BASE_URL}/newpost`, newpost)
+    const res = await Axios.post(`${BASE_URL}/newpost`, newpost)
+    
 }
 
 const handleChange = (e) => {
@@ -23,11 +24,9 @@ const handleChange = (e) => {
 }
 const changeUser = () => {
     function change(){
-        if (props.authenticated) {
-            Setnewpost({...newpost, userId: props.user.id})
-        } else {
-            Setnewpost({...newpost, userId: ''})
-        }
+       Setnewpost({
+           userId: props.user.id
+       })
     }
     return change()
 }
@@ -49,7 +48,7 @@ return(
       </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={changeUser} onSubmit={handleSubmit}>
     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
     <Form.Label column sm="2">
       
@@ -69,7 +68,7 @@ return(
     <Form.Label>Caption</Form.Label>
     <Form.Control name='caption' onChange={handleChange} as="textarea" rows={3} />
   </Form.Group>
-  <Button>Post</Button>
+  <Button type='submit'>Post</Button>
 </form>
     </Modal.Body>
     <Modal.Footer>

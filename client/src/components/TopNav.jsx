@@ -1,8 +1,8 @@
 import React from 'react'
 import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
 
-const TopNav = (props) => {
-    console.log(props.user)
+const TopNav = ({authenticated, user, handleLogOut}) => {
+    console.log(user)
     return(
         <header>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -17,13 +17,13 @@ const TopNav = (props) => {
           
           </Nav>
           <Nav>
-              {props.authenticated && props.user ? <Nav.Link href='/login' onClick={props.handleLogOut}>Sign out</Nav.Link> : 
+              {authenticated  ? <Nav.Link href='/login' onClick={handleLogOut}>Sign out</Nav.Link> : 
               <Nav.Link href="/login">Sign in</Nav.Link>
             //   <Nav.Link eventKey={2} href="/register">
             //   Register
             // </Nav.Link>
                }
-               {props.authenticated && props.user ? <Nav.Link>Welcome {props.user.email}</Nav.Link> :<Nav.Link href='/register'>Register</Nav.Link> }
+               {authenticated  ? <Nav.Link>Welcome {user.email}</Nav.Link> :<Nav.Link href='/register'>Register</Nav.Link> }
           </Nav>
         </Navbar.Collapse>
         </Container>
