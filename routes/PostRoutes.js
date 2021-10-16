@@ -5,8 +5,7 @@ const middleware = require('../middleware')
 Router.get('/posts', PostController.GetAllPosts)
 Router.post(
   '/newpost',
-  middleware.stripToken,
-  middleware.verifyToken,
+
   PostController.NewPost
 )
 Router.delete(

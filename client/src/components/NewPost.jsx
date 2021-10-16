@@ -11,28 +11,25 @@ const [newpost, Setnewpost] = useState({
     title: '',
     caption: '',
     image: '',
-    userId: ''
+    userId: props.user.id
 })
 
-const handleSubmit = async () => {
-    const res = await Axios.post(`${BASE_URL}/newpost`, newpost)
+const handleSubmit = async (e) => {
+      const res = await Axios.post(`${BASE_URL}/newpost`, {
+        title: newpost.title,
+        caption: newpost.caption,
+        image: newpost.image,
+        userId: props.user.id
+    })
+    
     
 }
 
 const handleChange = (e) => {
     Setnewpost({...newpost, [e.target.name]: e.target.value})
 }
-const changeUser = () => {
-    function change(){
-       Setnewpost({
-           userId: props.user.id
-       })
-    }
-    return change()
-}
 
-
-
+console.log(newpost)
 
 console.log(props.user)
 return(
@@ -48,7 +45,7 @@ return(
       </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-    <form onSubmit={changeUser} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
     <Form.Label column sm="2">
       
@@ -58,17 +55,17 @@ return(
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Post title</Form.Label>
-    <Form.Control type="text" name='title' onChange={handleChange} placeholder="title" />
+    <Form.Control type="input" name='title' value={newpost.title} onChange={handleChange} placeholder="title" />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Image Url</Form.Label>
-    <Form.Control type="text" name='image' onChange={handleChange} placeholder="Image url" />
+    <Form.Control type="input" name='image' value={newpost.image} onChange={handleChange} placeholder="Image url" />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
     <Form.Label>Caption</Form.Label>
-    <Form.Control name='caption' onChange={handleChange} as="textarea" rows={3} />
+    <Form.Control name='caption' value={newpost.caption} onChange={handleChange} as="textarea" rows={3} />
   </Form.Group>
-  <Button type='submit'>Post</Button>
+  <Button  type='submit'>Post</Button>
 </form>
     </Modal.Body>
     <Modal.Footer>

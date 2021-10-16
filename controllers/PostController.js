@@ -25,7 +25,7 @@ const GetAllPosts = async (req, res) => {
 
 const NewPost = async (req, res) => {
   try {
-    const newpost = await Post.create(req.body)
+    const newpost = await Post.create({ ...req.body })
     res.send(newpost)
   } catch (error) {
     throw error

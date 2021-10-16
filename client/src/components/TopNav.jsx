@@ -23,7 +23,7 @@ const TopNav = ({authenticated, user, handleLogOut}) => {
             //   Register
             // </Nav.Link>
                }
-               {authenticated  ? <Nav.Link>Welcome {user.email}</Nav.Link> :<Nav.Link href='/register'>Register</Nav.Link> }
+               {authenticated  ? null :<Nav.Link href='/register'>Register</Nav.Link> }
           </Nav>
         </Navbar.Collapse>
         </Container>

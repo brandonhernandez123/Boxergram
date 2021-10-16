@@ -41,7 +41,7 @@ function App() {
         user={user}
         handleLogOut={handleLogOut}
       />
-      <Navigation user={user} authenticated={authenticated} />
+      <Navigation setUser={setUser} user={user} authenticated={authenticated} />
 
       <Switch>
         <Route
@@ -58,13 +58,28 @@ function App() {
         <Route
           exact
           path="/feed"
-          component={(props) => <Feed {...props} user={user} />}
+          component={(props) => (
+            <Feed
+              {...props}
+              user={user}
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              authenticated={authenticated}
+            />
+          )}
         />
         <Route exact path="/register" component={Register} />
         <Route
           exact
           path="/events"
-          component={(props) => <Event {...props} user={user} />}
+          component={(props) => (
+            <Event
+              {...props}
+              user={user}
+              authenticated={authenticated}
+              setUser={setUser}
+            />
+          )}
         />
       </Switch>
     </div>
