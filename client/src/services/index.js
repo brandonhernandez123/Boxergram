@@ -1,7 +1,6 @@
 import Axios from 'axios'
-
-export const BASE_URL = 'http://localhost:3001'
-const Client = Axios.create({ baseURL: BASE_URL })
+import { BASE_URL } from '../globals'
+const Client = Axios.create({ baseURL: `${BASE_URL}` })
 
 Client.interceptors.request.use(
   (config) => {

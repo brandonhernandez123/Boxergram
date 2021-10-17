@@ -67,8 +67,18 @@ const UpdatePassword = async (req, res) => {
 }
 
 const CheckSession = async (req, res) => {
-  const { payload } = res.locals
-  res.send(payload)
+  try {
+    const { payload } = res.locals
+    // console.log('TTTTT', res.locals)
+    // console.log(payload)
+    // const user = await User.findByPk(payload.id, {
+    //   attributes: ['id', 'email']
+    // })
+    return res.send(payload)
+  } catch (error) {
+    console.log('error', error)
+    throw error
+  }
 }
 
 module.exports = {

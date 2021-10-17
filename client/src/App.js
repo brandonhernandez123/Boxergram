@@ -1,6 +1,6 @@
 import './App.css'
 import Navigation from './components/Navbar'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import { useState, useEffect } from 'react'
@@ -8,6 +8,7 @@ import { CheckSession } from './services/auth'
 import Feed from './pages/Feed'
 import Event from './pages/Events'
 import TopNav from './components/TopNav'
+import Home from './pages/Home'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
     false || localStorage.getItem('authenticated')
@@ -23,7 +24,9 @@ function App() {
 
   const checkToken = async () => {
     const session = await CheckSession()
+    console.log('session', session)
     setUser(session)
+    console.log(user)
     toggleAuthenticated(true)
     localStorage.setItem('authenticated', '1')
   }
@@ -34,6 +37,7 @@ function App() {
       checkToken()
     }
   }, [])
+
   return (
     <div className="App">
       <TopNav
@@ -78,12 +82,15 @@ function App() {
               user={user}
               authenticated={authenticated}
               setUser={setUser}
+              checkToken={checkToken}
+              toggleAuthenticated={toggleAuthenticated}
             />
           )}
         />
+        <Route exact path="/" component={Home} />
       </Switch>
     </div>
   )
 }
 
-export default App
+export default withRouter(App)
