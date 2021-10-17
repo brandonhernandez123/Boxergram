@@ -10,6 +10,11 @@ const NewEvent = (post) => {
         image: '',
         location: ''
     })
+
+
+    const CreateEvent = async () => {
+        const res = await Client.post('/newevent', NewEvent)
+    }
 }
 
 
