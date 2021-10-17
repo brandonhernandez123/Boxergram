@@ -38,16 +38,21 @@ Create a new Event      </Button>
       <NewEvent show={modalShow} onHide={() => setModalShow(false)}
  />
             {events.map((event) => (
-                <Card className="bg-dark text-white">
-                <Card.Img src={`${event.image}`}alt="Card image" />
-                <Card.ImgOverlay>
-                  <Card.Title>{event.title}</Card.Title>
-                  <Card.Text>
-                    {event.description}
-                  </Card.Text>
-                  <Card.Text>{event.location}</Card.Text>
-                </Card.ImgOverlay>
-              </Card>
+               <Card>
+               <Card.Img variant="top" src={`${event.image}`} />
+               <Card.Body>
+                 <Card.Text>
+                   {event.title}
+                 </Card.Text>
+                 <Card.Text>
+                   {event.descriptioin}
+                 </Card.Text>
+                 <Card.Text>
+                   {event.location}
+                 </Card.Text>
+               </Card.Body>
+             </Card>
+            
             ))}
         </div>
 

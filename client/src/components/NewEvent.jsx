@@ -40,13 +40,14 @@ return(
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+     
     >
-      <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter">
+      <Modal.Header className='newevent' >
+        <Modal.Title   id="contained-modal-title-vcenter">
             Create New Event
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className='newevent'>
       <Form onSubmit={OnSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Event Title</Form.Label>
@@ -76,7 +77,7 @@ Give your event an engaging name    </Form.Text>
   </Button>
 </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='newevent'>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
