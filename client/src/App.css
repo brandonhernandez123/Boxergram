@@ -111,11 +111,14 @@ h2 {
     max-width: 300px;
   }
   .postcard {
-    background-color: white;
+   
     color: black;
     width: 300px;
     justify-content: center;
     margin: 0 auto;
+    background: rgb(121,9,9);
+background: linear-gradient(90deg, rgba(121,9,9,1) 0%, rgba(0,0,0,1) 52%, rgba(0,91,255,1) 97%);
+color: white;
   }
 }
 
@@ -138,12 +141,11 @@ h2 {
 background: linear-gradient(90deg, rgba(121,9,9,1) 0%, rgba(0,0,0,1) 52%, rgba(0,91,255,1) 97%);
 color: white;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.boxer{
+  color: blue;
 }
+.gram{
+  color: red;
+}
+
+

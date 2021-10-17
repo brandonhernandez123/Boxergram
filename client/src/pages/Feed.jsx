@@ -34,7 +34,7 @@ return(
     <Col>
       <Card>
         <Card.Img variant="top" src={`${post.image}`} />
-        <Card.Body>
+        <Card.Body className='newevent'>
           <Card.Title> posted by {post.User.first_name} {post.User.last_name}</Card.Title>
           <Card.Text>
             {post.caption}
