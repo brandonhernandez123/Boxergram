@@ -1,13 +1,15 @@
 import React,{useState,useEffect} from 'react'
 
-import { Card, Row, Col } from 'react-bootstrap'
+import { Card, Row, Col,Button } from 'react-bootstrap'
 import Client from '../services'
+import NewEvent from '../components/NewEvent'
 
 
 
 const Event = (props) => {
 
     const [events, SetEvents] = useState([])
+    const [modalShow, setModalShow] = React.useState(false);
     
 
 
@@ -31,6 +33,10 @@ const Event = (props) => {
           <p className="events">Have an event you want people to know about coming up?, is your local gym hosting amature bouts? Do you run a gym
             and have event you want to promote? BoxerGram events is where you want to post that and get people showing up!
           </p>
+          <Button variant="danger" onClick={() => setModalShow(true)}>
+Create a new Event      </Button>
+      <NewEvent show={modalShow} onHide={() => setModalShow(false)}
+ />
             {events.map((event) => (
                 <Card className="bg-dark text-white">
                 <Card.Img src={`${event.image}`}alt="Card image" />

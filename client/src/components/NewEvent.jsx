@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Client from '../services'
-import {Modal} from 'react-bootstrap'
+import {Modal, Form, Button} from 'react-bootstrap'
 
 
 
@@ -16,10 +16,19 @@ const NewEvent = (props) => {
     const OnSubmit = async () => {
         const res = await Client.post('/newevent', NewEvent)
     }
-}
 
-const handleChange = (e) => {
-    SetNewEvent({...NewEvent, [e.target.name]: e.target.value})
+
+const handleChangeTitle = (e) => {
+    SetNewEvent({...NewEvent, title: e.target.value})
+}
+const handleChangeDescription = (e) => {
+    SetNewEvent({...NewEvent, description: e.target.value})
+}
+const handleChangeImage = (e) => {
+    SetNewEvent({...NewEvent, image: e.target.value})
+}
+const handleChangeLocation = (e) => {
+    SetNewEvent({...NewEvent, location: e.target.value})
 }
 
 
@@ -32,37 +41,37 @@ return(
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
             Create New Event
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <Form>
+      <Form onSubmit={OnSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Event Title</Form.Label>
-    <Form.Control type="input" required='true' name='title' placeholder="What is the name of your event" />
+    <Form.Control type="input" required='true' value={NewEvent.title} handleChange={handleChangeTitle} name='title' placeholder="What is the name of your event" />
     <Form.Text className="text-muted">
 Give your event an engaging name    </Form.Text>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Description</Form.Label>
-    <Form.Control type="input" required='true' name='description' placeholder="Give a brief description of your event and when it takes place" />
+    <Form.Control type="input" required='true' value={NewEvent.description} handleChange={handleChangeDescription} name='description' placeholder="Give a brief description of your event and when it takes place" />
   </Form.Group>
 
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Image</Form.Label>
-    <Form.Control type="input" required='true' name='Image' placeholder="Include an image url for you event" />
+    <Form.Control type="input" required='true' value={NewEvent.image} handleChange={handleChangeImage} name='Image' placeholder="Include an image url for you event" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Location</Form.Label>
-    <Form.Control type="input" required='true' name='location' placeholder="Where is your Event located at include the entire address" />
+    <Form.Control type="input" required='true' value={NewEvent.location} handleChange={handleChangeLocation} name='location' placeholder="Where is your Event located at include the entire address" />
   </Form.Group>
 
-  <Button variant="primary" type="submit">
+  <Button disabled={!NewEvent.title || !NewEvent.image || !NewEvent.description || !NewEvent.location } variant="primary" type="submit">
     Submit
   </Button>
 </Form>
@@ -72,7 +81,8 @@ Give your event an engaging name    </Form.Text>
       </Modal.Footer>
     </Modal>
     </div>
-)
+)}
+
 
 
 
