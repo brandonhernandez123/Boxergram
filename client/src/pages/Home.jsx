@@ -5,7 +5,7 @@ import React from 'react'
 const Home = () => {
     return(
         <div className='newevent'>
-           <h1>This is BoxerGram</h1>
+           <h1>This is <span className='boxer'>Boxer</span><span className='gram'>Gram</span></h1>
            <p>BoxerGram is a platform for Boxers, Coaches and fanatics 
                to share their favorite pictures related to boxing</p>
 
