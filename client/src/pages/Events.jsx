@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 
 import { Card, Row, Col } from 'react-bootstrap'
 import Client from '../services'
-import {CheckSession} from '../services/auth'
 
 
 
@@ -19,19 +18,12 @@ const Event = (props) => {
         console.log(events)
     },[])
 
-    const checkToken = async () => {
-      const session = await CheckSession()
-      props.setUser(session)
-      props.toggleAuthenticated(true)
-      localStorage.setItem('authenticated', '1')
+
+    const PostEvent = async () => {
+      const res = await Client.post('/newpost')
     }
-  
-    useEffect(() => {
-      const token = localStorage.getItem('token')
-      if (token) {
-        checkToken()
-      }
-    }, [])
+
+    
     return(
         <div>
           <h4 className="events">Welcome to BoxerGram Events!</h4>
