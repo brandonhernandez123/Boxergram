@@ -9,6 +9,7 @@ import Feed from './pages/Feed'
 import Event from './pages/Events'
 import TopNav from './components/TopNav'
 import Home from './pages/Home'
+import MyProfile from './pages/MyProfile'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
     false || localStorage.getItem('authenticated')
@@ -88,6 +89,22 @@ function App() {
           )}
         />
         <Route exact path="/" component={Home} />
+        {authenticated && user ? (
+          <Route
+            exact
+            path="/events"
+            component={(props) => (
+              <MyProfile
+                {...props}
+                user={user}
+                authenticated={authenticated}
+                setUser={setUser}
+                checkToken={checkToken}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            )}
+          />
+        ) : null}
       </Switch>
     </div>
   )
