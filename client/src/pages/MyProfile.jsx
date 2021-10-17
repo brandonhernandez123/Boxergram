@@ -49,8 +49,8 @@ const MyProfile = (props) => {
 
       <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={`${post.image}`} />
-  <Card.Body>
-    <Card.Title>{post.title}</Card.Title>
+  <Card.Body className='newevent'>
+    <Card.Title >{post.title}</Card.Title>
     <Card.Text>
      {post.caption}
     </Card.Text>
