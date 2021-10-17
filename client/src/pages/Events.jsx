@@ -8,6 +8,12 @@ import Client from '../services'
 const Event = (props) => {
 
     const [events, SetEvents] = useState([])
+    const [Newevent, SetNewEvent] = useState({
+      title: '',
+      image: '',
+      description: '',
+      location: ''
+    })
 
     useEffect(()=>{
         async function getEvents(){
