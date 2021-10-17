@@ -24,6 +24,14 @@ const Event = (props) => {
     },[])
 
 
+    const DeleteEvent = async (index) => {
+    const id = `${events[index].id}`
+      const res = Client.delete(`/deleteevent/${id}`)
+    }
+
+    console.log(events.id)
+
+
    
 
     
@@ -35,14 +43,15 @@ const Event = (props) => {
             and have event you want to promote? BoxerGram events is where you want to post that and get people showing up!
           </p> 
           <Button variant="danger" onClick={() => setModalShow(true)}>
-Create a new Event      </Button>
+            Create a new Event     
+           </Button>
           </div>
          
       <NewEvent show={modalShow} onHide={() => setModalShow(false)}
  />
  <br/>
  <br/>
-            {events.map((event) => (
+            {events.map((event,index) => (
          <div className="postcard">
          <Row xs={1} md={1} className="g-4">
    {Array.from({ length: 1 }).map((_, idx) => (
@@ -56,7 +65,8 @@ Create a new Event      </Button>
            </Card.Text>  
            <Card.Text>
              Location: {event.location}
-           </Card.Text>  
+           </Card.Text>
+           <Button onClick={()=>DeleteEvent(index)}>Event Over</Button>  
          
          </Card.Body>
         
