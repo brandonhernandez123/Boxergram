@@ -92,7 +92,7 @@ function App() {
         {authenticated && user ? (
           <Route
             exact
-            path="/events"
+            path="/myprofile"
             component={(props) => (
               <MyProfile
                 {...props}
