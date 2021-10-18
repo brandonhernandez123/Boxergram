@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Client from '../services'
-import { Container, Row, Col,Image,Card, Button } from 'react-bootstrap'
-import axios from 'axios'
-import { BASE_URL } from '../globals'
-import { CheckSession } from '../services/auth'
+import { Accordion, Row, Col,Image,Card, Button } from 'react-bootstrap'
+
 import NewComment from '../components/NewComment'
 
 const Feed = (props) => {
@@ -50,7 +48,7 @@ return(
 <Button variant="danger" onClick={() => setModalShow(true)}>
         Comment
       </Button> 
-        
+ 
         
         </Card.Body>
       

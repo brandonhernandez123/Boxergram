@@ -50,7 +50,7 @@ console.log(comment)
       </Modal.Header>
       <Modal.Body className='newevent'>
        <Form onSubmit={onSubmit}>
-       <Form.Control onChange={handleChange}size="sm" name='comment' type="text" placeholder="Comment" />
+       <Form.Control onChange={handleChange} size="sm" name='comment' type="text" placeholder="Comment" />
        <Button type='submit' disabled={!comment.comment}>Submit</Button>
        </Form>
       </Modal.Body>
