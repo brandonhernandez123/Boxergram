@@ -1,12 +1,11 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {Nav, Navbar, Container,Button} from 'react-bootstrap'
 import NewPost from './NewPost'
 
 
 const Navigation = (props) => {
   const [modalShow, setModalShow] = React.useState(false);
-console.log('navibation', props.authenticated)
-console.log('user', props.user)
+
     return(
         <footer>
         <Navbar fixed='bottom' bg="light" variant="light" className='navbar' >

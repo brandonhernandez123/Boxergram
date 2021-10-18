@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import Client from '../services'
-import {Row,Col,Container,Image,Card,Button, Alert} from 'react-bootstrap'
+import {Row,Col,Container,Image,Card,Button} from 'react-bootstrap'
 import UpdatePost from '../components/UpdatePost'
 
 
@@ -32,8 +32,7 @@ const MyProfile = (props) => {
         Posts()
     },[SetUserPosts])
 
-    console.log('getprofile',getProfile)
-    console.log('userposts', userPosts)
+  
 
     const DeletePost = async (index) => {
         const id = `${userPosts[index].id}`
@@ -41,7 +40,7 @@ const MyProfile = (props) => {
           alert('Post Deleted')
           props.history.push('/feed')
         }
-    console.log(userPosts.id)
+    
     
     return(
         <div>

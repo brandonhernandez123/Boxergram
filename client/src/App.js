@@ -25,9 +25,9 @@ function App() {
 
   const checkToken = async () => {
     const session = await CheckSession()
-    console.log('session', session)
+
     setUser(session)
-    console.log(user)
+
     toggleAuthenticated(true)
     localStorage.setItem('authenticated', '1')
   }

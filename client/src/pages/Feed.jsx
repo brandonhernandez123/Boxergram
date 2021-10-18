@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Client from '../services'
-import { Accordion, Row, Col,Image,Card, Button } from 'react-bootstrap'
+import {  Row, Col,Card, Button } from 'react-bootstrap'
 import ViewComments from '../components/ViewComments'
 import NewComment from '../components/NewComment'
 
@@ -39,7 +39,7 @@ const onClickLike = () => {
   SetLikes({ likes: Likes.likes + 1})
 }
 
-console.log('getcomments', getComments)
+
 
 return(
     <div>

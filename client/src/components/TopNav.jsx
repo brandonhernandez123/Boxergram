@@ -1,8 +1,7 @@
 import React from 'react'
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Container, Nav} from 'react-bootstrap'
 
 const TopNav = ({authenticated, user, handleLogOut}) => {
-    console.log(user)
     return(
         <header>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

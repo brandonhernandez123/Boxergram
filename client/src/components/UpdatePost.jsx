@@ -22,7 +22,6 @@ const UpdatePost = (props) => {
             throw error
         }
     }
-    console.log(props.id)
 
     const handleChangeTitle = (e) => {
         SetUpdatedPost({...updatePost, title: e.target.value})
@@ -36,7 +35,6 @@ const UpdatePost = (props) => {
         SetUpdatedPost({...updatePost, image: e.target.value})
     }
 
-    console.log(updatePost)
     
     
     

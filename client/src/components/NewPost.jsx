@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import Axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Modal, Form, Row, Col, Button } from 'react-bootstrap'
@@ -29,9 +29,7 @@ const handleChange = (e) => {
     Setnewpost({...newpost, [e.target.name]: e.target.value})
 }
 
-console.log(newpost)
 
-console.log(props.user)
 return(
     <Modal
     {...props}

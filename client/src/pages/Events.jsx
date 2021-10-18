@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 
-import { Card, Row, Col,Button, ListGroupItem, ListGroup } from 'react-bootstrap'
+import { Card, Row, Col,Button, } from 'react-bootstrap'
 import Client from '../services'
 import NewEvent from '../components/NewEvent'
 import UpdateEvent from '../components/UpdateEvent'
@@ -22,7 +22,7 @@ const Event = (props) => {
             SetEvents(res.data)
         }
         getEvents()
-        console.log(events)
+        
     },[])
 
 
@@ -31,8 +31,7 @@ const Event = (props) => {
       const res = Client.delete(`/deleteevent/${id}`)
     }
 
-    console.log(events.id)
-
+    
 
    
 

@@ -33,7 +33,6 @@ const handleChangeImage = (e) => {
 const handleChangeLocation = (e) => {
     SetUpdatedEvent({...updatedEvent, location: e.target.value})
 }
-console.log(updatedEvent)
 
     return(
         <div>
