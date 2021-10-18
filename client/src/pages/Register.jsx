@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {RegisterUser} from '../services/auth'
+import { Button } from 'react-bootstrap'
 
 
 const iState = {
@@ -54,7 +55,7 @@ const handleSubmit = async (e) => {
     <input type='text' name="profile_picture" value={formValues.profile_picture} onChange={handleChange} placeholder="Host profile pic on imgur and paste image address link here" />
     
     <input type="password" name="password" value={formValues.password} placeholder="Password" onChange={handleChange}/>
-    <button type="submit"  className="submit">Register</button>
+    <Button  variant='danger' type="submit" disabled={!formValues.first_name || formValues.last_name || formValues.email || formValues.profile_picture || formValues.profile_picture}  className="submit">Register</Button>
     </form>
    
 </div>
