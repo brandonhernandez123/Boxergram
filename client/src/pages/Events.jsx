@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react'
 import { Card, Row, Col,Button, ListGroupItem, ListGroup } from 'react-bootstrap'
 import Client from '../services'
 import NewEvent from '../components/NewEvent'
+import UpdateEvent from '../components/UpdateEvent'
 
 
 
@@ -10,6 +11,7 @@ const Event = (props) => {
 
     const [events, SetEvents] = useState([])
     const [modalShow, setModalShow] = React.useState(false);
+    const [updatemodalShow, setUpdateModalShow] = React.useState(false);
     
 
 
@@ -67,7 +69,12 @@ const Event = (props) => {
              Location: {event.location}
            </Card.Text>
            <Button onClick={()=>DeleteEvent(index)}>Event Over</Button>  
-         
+           <Button variant="primary" onClick={() => setUpdateModalShow(true)}>
+       Update Event
+      </Button>
+      <UpdateEvent show={updatemodalShow}
+        onHide={() => setUpdateModalShow(false)} 
+        id={event.id} title={event.title} description={event.description} image={event.image} location={event.location} />
          </Card.Body>
         
        </Card>
