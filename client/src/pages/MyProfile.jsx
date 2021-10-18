@@ -3,6 +3,7 @@ import Client from '../services'
 import {Row,Col,Container,Image,Card,Button} from 'react-bootstrap'
 
 
+
 const MyProfile = (props) => {
     const [getProfile, SetUserProfile] = useState([])
     const [userPosts, SetUserPosts] = useState([])
@@ -19,6 +20,8 @@ const MyProfile = (props) => {
         Profile()
     },[])
 
+    
+
     useEffect(() => {
         async function Posts(){
             const res = await await Client.get(`/profile/${props.user.id}`)
@@ -30,7 +33,11 @@ const MyProfile = (props) => {
 
     console.log('getprofile',getProfile)
     console.log('userposts', userPosts)
-    
+
+    const DeletePost = async (index) => {
+        const id = `${userPosts[index].id}`
+          const res = Client.delete(`/deletepost/${id}`)
+        }
     
     console.log(userPosts.title)
     return(
@@ -44,7 +51,7 @@ const MyProfile = (props) => {
 <br/>
 <br/>
 <h2>My Posts</h2>
-{userPosts.map((post) => (
+{userPosts.map((post,index) => (
     <div className='userposts'>
 
       <Card style={{ width: '18rem' }}>
@@ -54,10 +61,10 @@ const MyProfile = (props) => {
     <Card.Text>
      {post.caption}
     </Card.Text>
-    <Button variant="danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+    <Button variant="danger" onClick={()=>DeletePost(index)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 </svg></Button>
-    <Button variant="info">Update Post</Button>
+    <Button variant="info" >Update Post</Button>
   </Card.Body>
 </Card>
 </div>
