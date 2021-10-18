@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Client from '../services'
 import { Accordion, Row, Col,Image,Card, Button } from 'react-bootstrap'
-
+import ViewComments from '../components/ViewComments'
 import NewComment from '../components/NewComment'
 
 const Feed = (props) => {
@@ -12,20 +12,35 @@ const Feed = (props) => {
     })
     const [modalShow, setModalShow] = React.useState(false);
 
+    const [showcomments, setShowComments] = useState(false)
+    const [getComments, SetGetComments] = useState([])
+
    
     useEffect(() => {
         async function getPosts(){
             const res = await Client.get('/posts')
             Setposts(res.data)
+          
         }
         getPosts()
     },[])
+
+    useEffect(() => {
+      async function Comments(){
+          const res =  await Client.get('/comments')
+          SetGetComments(res.data)
+      }
+      Comments()
+  },[])
+
+ 
 
 const onClickLike = () => {
   SetLikes({ likes: Likes.likes + 1})
 }
 
-console.log(props.user)
+console.log('getcomments', getComments)
+
 return(
     <div>
       
@@ -48,8 +63,12 @@ return(
 <Button variant="danger" onClick={() => setModalShow(true)}>
         Comment
       </Button> 
- 
-        
+      <Button variant="danger" onClick={() => setShowComments(true)}>
+        View Comments
+      </Button>
+ <ViewComments show={showcomments}
+        onHide={() => setShowComments(false)}  comment={getComments.comment}/>
+        {console.log(getComments.comment)}
         </Card.Body>
       
       </Card>
@@ -60,6 +79,8 @@ return(
 </Row>
 {props.authenticated && props.user ? <NewComment show={modalShow}
         onHide={() => setModalShow(false)} user={props.user.id} post={post.id}/> : null}  
+
+        
     </div>
          
         ))}

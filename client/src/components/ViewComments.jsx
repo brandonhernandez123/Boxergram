@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button, List } from 'react-bootstrap'
+import { Modal, Button, ListGroup } from 'react-bootstrap'
 
 
 
@@ -19,9 +19,7 @@ const ViewComments = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className='newevent'>
-      <ListGroup variant="flush">
-  <ListGroup.Item>{props.first_name} {props.last_name} commented: {props.comment}</ListGroup.Item>
-</ListGroup>
+      <p>{props.comment}</p>
       </Modal.Body>
       <Modal.Footer className='newevent'>
         <Button onClick={props.onHide}>Close</Button>
