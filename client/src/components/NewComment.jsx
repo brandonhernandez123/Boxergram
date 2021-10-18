@@ -10,13 +10,13 @@ const NewComment = (props) => {
 
     const  [comment, SetComment] = useState({
     comment: '',
-    userId: props.user.id,
-    postId: props.post.id
+    userId: props.user,
+    postId: props.post
 })
 
 
 
-    async function onSubmit() {
+    const onSubmit= async() => {
         const res = await Client.post('/newcomment', comment)
     }
 
@@ -27,7 +27,7 @@ const NewComment = (props) => {
 
 
 
-
+console.log(comment)
 
 
 
@@ -39,17 +39,18 @@ const NewComment = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className='newevent'>
         <Modal.Title id="contained-modal-title-vcenter">
           New Comment
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className='newevent'>
        <Form onSubmit={onSubmit}>
-       <Form.Control onChange={handleChange}size="sm" type="text" placeholder="Comment" />
+       <Form.Control onChange={handleChange}size="sm" name='comment' type="text" placeholder="Comment" />
+       <Button type='submit' disabled={!comment.comment}>Submit</Button>
        </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='newevent'>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
