@@ -17,12 +17,16 @@ const NewComment = (props) => {
 
 
     const onSubmit= async() => {
-        const res = await Client.post('/newcomment', comment)
+        const res = await Client.post('/newcomment', {
+            comment: comment.comment,
+            userId: props.user,
+            postId: props.post
+        })
     }
 
 
     const handleChange = (e) => {
-        SetComment({...comment, comment: e.target.value})
+        SetComment({...comment, [e.target.name]: e.target.value})
     }
 
 
