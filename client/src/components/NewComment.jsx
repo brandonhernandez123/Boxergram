@@ -21,6 +21,11 @@ const NewComment = (props) => {
     }
 
 
+    const handleChange = (e) => {
+        SetComment({...comment, comment: e.target.value})
+    }
+
+
 
 
 
@@ -40,8 +45,8 @@ const NewComment = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-       <Form>
-       <Form.Control size="sm" type="text" placeholder="Comment" />
+       <Form onSubmit={onSubmit}>
+       <Form.Control onChange={handleChange}size="sm" type="text" placeholder="Comment" />
        </Form>
       </Modal.Body>
       <Modal.Footer>
