@@ -1,10 +1,12 @@
 import React,{useState, useEffect} from 'react'
 import Client from '../services'
 import {Row,Col,Container,Image,Card,Button, Alert} from 'react-bootstrap'
+import UpdatePost from '../components/UpdatePost'
 
 
 
 const MyProfile = (props) => {
+    const [modalShow, setModalShow] = useState(false);
     const [getProfile, SetUserProfile] = useState([])
     const [userPosts, SetUserPosts] = useState([])
     
@@ -13,8 +15,7 @@ const MyProfile = (props) => {
         async function Profile(){
             const res = await Client.get(`/profile/${props.user.id}`)
             SetUserProfile(res.data)
-            console.log(res.data)
-            SetUserPosts(res.data.Posts)
+            
             
         }
         Profile()
@@ -40,8 +41,8 @@ const MyProfile = (props) => {
           alert('Post Deleted')
           props.history.push('/feed')
         }
+    console.log(userPosts.id)
     
-    console.log(userPosts.title)
     return(
         <div>
 <Container>
@@ -58,6 +59,10 @@ const MyProfile = (props) => {
   {Array.from({ length: 1 }).map((_, idx) => (
     <Col>
       <Card>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+       Update post
+      </Button>
+     
           <Button onClick={()=>DeletePost(index)} variant='danger'>Delete</Button>
         <Card.Img variant="top" src={`${post.image}`} />
         <Card.Body className='newevent'>
@@ -85,7 +90,9 @@ const MyProfile = (props) => {
     </Col>
    
  
-</Container>
+</Container> 
+<UpdatePost id={userPosts.id} image={userPosts.image} caption={userPosts.caption} title={userPosts.caption} show={modalShow}
+        onHide={() => setModalShow(false)} />
         </div>
     )
 }
