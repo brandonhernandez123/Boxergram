@@ -10,14 +10,14 @@ const UpdatePost = (props) => {
         title: '',
         caption: '',
         image: '',
-        id: props.id
+        id: props.userPosts.id
 
     })
 
 
     const onSubmit = async () => {
         try {
-           const res = await Client.put(`/updatepost/${props.id}`, updatePost) 
+           const res = await Client.put(`/updatepost/${props.userPosts.id}`, updatePost) 
         } catch (error) {
             throw error
         }
@@ -57,7 +57,7 @@ const UpdatePost = (props) => {
       <Form onSubmit={onSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Title</Form.Label>
-    <Form.Control type="input" name='title' onChange={handleChangeTitle} defaultValue={props.title} placeholder="Title" />
+    <Form.Control type="input" name='title' onChange={handleChangeTitle} defaultValue={props.userPosts.title} placeholder="Title" />
     <Form.Text className="text-muted">
       Update title?
     </Form.Text>
@@ -65,7 +65,7 @@ const UpdatePost = (props) => {
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Caption</Form.Label>
-    <Form.Control type="input" name='caption' onChange={handleChangeCaption} defaultValue={props.caption} placeholder="Caption" />
+    <Form.Control type="input" name='caption' onChange={handleChangeCaption} defaultValue={props.userPosts.caption} placeholder="Caption" />
     <Form.Text className="text-muted">
       Update Caption?
     </Form.Text>
@@ -73,7 +73,7 @@ const UpdatePost = (props) => {
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Image url</Form.Label>
-    <Form.Control type="input" name='image' onChange={handleChangeImage} defaultValue={props.image} placeholder="Update Image Url" />
+    <Form.Control type="input" name='image' onChange={handleChangeImage} defaultValue={props.userPosts.image} placeholder="Update Image Url" />
     <Form.Text className="text-muted">
       Update image url?
     </Form.Text>

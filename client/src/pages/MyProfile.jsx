@@ -91,7 +91,7 @@ const MyProfile = (props) => {
    
  
 </Container> 
-<UpdatePost id={userPosts.id} image={userPosts.image} caption={userPosts.caption} title={userPosts.caption} show={modalShow}
+<UpdatePost userPosts={userPosts} show={modalShow}
         onHide={() => setModalShow(false)} />
         </div>
     )
