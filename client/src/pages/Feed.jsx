@@ -66,9 +66,12 @@ return(
       <Button variant="danger" onClick={() => setShowComments(true)}>
         View Comments
       </Button>
- <ViewComments show={showcomments}
-        onHide={() => setShowComments(false)}  comment={getComments.comment}/>
-        {console.log(getComments.comment)}
+      {getComments.map((comment) => (
+        <ViewComments show={showcomments}
+        onHide={() => setShowComments(false)}  comment={comment.comment}/> 
+      ))}
+
+
         </Card.Body>
       
       </Card>
