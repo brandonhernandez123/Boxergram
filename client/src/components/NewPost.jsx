@@ -39,12 +39,12 @@ return(
     aria-labelledby="contained-modal-title-vcenter"
     centered
   >
-    <Modal.Header closeButton>
+    <Modal.Header className='newevent'>
       <Modal.Title id="contained-modal-title-vcenter">
         Create new post
       </Modal.Title>
     </Modal.Header>
-    <Modal.Body>
+    <Modal.Body className='newevent'>
     <form onSubmit={handleSubmit}>
     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
     <Form.Label column sm="2">
@@ -65,10 +65,10 @@ return(
     <Form.Label>Caption</Form.Label>
     <Form.Control name='caption' value={newpost.caption} onChange={handleChange} as="textarea" rows={3} />
   </Form.Group>
-  <Button  type='submit'>Post</Button>
+  <Button  variant='danger' type='submit'disable={!newpost.caption || !newpost.image || !newpost.title}>Post</Button>
 </form>
     </Modal.Body>
-    <Modal.Footer>
+    <Modal.Footer className='newevent'>
       <Button onClick={props.onHide}>Close</Button>
     </Modal.Footer>
   </Modal>

@@ -41,7 +41,7 @@ const Event = (props) => {
         <div>
           <div className='newevent'>
           <h4>Welcome to <span className='boxer'>Boxer</span><span className='gram'>Gram</span> Events!</h4>
-          <p>Have an event you want people to know about coming up?, is your local gym hosting amature bouts? Do you run a gym
+          <p>Have an event you want people to know about coming up? is your local gym hosting amature bouts? Do you run a gym
             and have event you want to promote? BoxerGram events is where you want to post that and get people showing up!
           </p> 
           <Button variant="danger" onClick={() => setModalShow(true)}>
@@ -58,8 +58,8 @@ const Event = (props) => {
          <Row xs={1} md={1} className="g-4">
    {Array.from({ length: 1 }).map((_, idx) => (
      <Col>
-       <Card>
-         <Card.Img variant="top" src={`${event.image}`} />
+       <Card className='newevent'>
+         <Card.Img className='newevent'variant="top" src={`${event.image}`} />
          <Card.Body className ='newevent'>
            <Card.Title>{event.title}</Card.Title>
            <Card.Text>

@@ -20,7 +20,7 @@ const Feed = (props) => {
         async function getPosts(){
             const res = await Client.get('/posts')
             Setposts(res.data)
-            SetGetComments(res.data)
+           
         }
         getPosts()
     },[])
@@ -67,6 +67,7 @@ return(
         View Comments
       </Button>
       {getComments.map((comment) => (
+       
         <ViewComments show={showcomments}
         onHide={() => setShowComments(false)}  comment={comment.comment}/> 
       ))}
