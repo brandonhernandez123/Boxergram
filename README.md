@@ -30,23 +30,34 @@
 
 ### ***Screenshots***
 
-##### image header 1
-![Smile]()
+##### Register page
+![Register](./client/src/images/boxergramregister.png)
 
-##### image header 2
-![Scared]()
+##### Feed Page 
+![Feed]('./../client/src/images/boxergramfeed.png)
+
+
+##### Myprofile page
+![profile]('./../client/src/images/boxergramprofile.png)
+
+
+##### Events page
+![Events]('./../client/src/images/boxergramevent.png)
 ***
 
 ### ***Future Updates***
-
+* [ ] AWS s3 Buckets for images
+* [ ] Add Followers
+* [ ] implement BoxRec Data to add boxing schedule
+* [ ] Add Ability to create a page to represent a gym
 
 ***
 
 ### ***Credits***
 
-##### Funny Images: [DuckDuckGo Search]()
+##### Boxing Images: [Google](google.com)
 
-##### Markdown Guide: [ia.net]()
+##### React Bootstrap: [Bootstrap](react-bootstrap.com)
 
-##### Markdown Cheatsheet: [GitHub]()
+##### Gradient Backgrounds: [cssgradient](https://cssgradient.io/)
 ***
