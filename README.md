@@ -50,6 +50,7 @@
 * [ ] Add Followers
 * [ ] implement BoxRec Data to add boxing schedule
 * [ ] Add Ability to create a page to represent a gym
+* [ ] Add View others profile
 
 ***
 
