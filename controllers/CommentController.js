@@ -6,7 +6,7 @@ const GetAllComments = async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name', 'profile_picture']
+          attributes: ['username', 'profile_picture']
         },
         {
           model: Post
@@ -37,7 +37,7 @@ const GetOneComment = async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name', 'profile_picture']
+          attributes: ['username', 'profile_picture']
         },
         {
           model: Post

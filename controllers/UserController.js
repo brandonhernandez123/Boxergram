@@ -21,7 +21,7 @@ const SignUp = async (req, res) => {
 const GetOneUser = async (req, res) => {
   try {
     const UsersAndPostsAndEvents = await User.findByPk(req.params.user_id, {
-      attributes: ['first_name', 'last_name', 'email', 'profile_picture'],
+      attributes: ['username', 'email', 'profile_picture'],
       include: [
         {
           model: Post

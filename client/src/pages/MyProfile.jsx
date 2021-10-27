@@ -48,7 +48,7 @@ const MyProfile = (props) => {
   
     <Col>
       <Image  className='profilepic'  src={`${getProfile.profile_picture}`} roundedCircle />
-      <h2>{getProfile.first_name} {getProfile.last_name}</h2>
+      <h2>{getProfile.username}</h2>
       <h4>{getProfile.email}</h4>
 
 <br/>

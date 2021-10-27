@@ -6,13 +6,13 @@ const GetAllPosts = async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name', 'profile_picture']
+          attributes: ['username', 'profile_picture']
         },
         {
           model: Comment,
           include: {
             model: User,
-            attributes: ['first_name', 'last_name', 'profile_picture']
+            attributes: ['username', 'profile_picture']
           }
         }
       ]
@@ -38,13 +38,13 @@ const GetOnePost = async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name', 'profile_picture']
+          attributes: ['username', 'profile_picture']
         },
         {
           model: Comment,
           include: {
             model: User,
-            attributes: ['first_name', 'last_name', 'profile_picture']
+            attributes: ['username', 'profile_picture']
           }
         }
       ]

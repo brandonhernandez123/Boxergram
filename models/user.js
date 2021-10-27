@@ -15,11 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
-      first_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      last_name: {
+      username: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -36,8 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       profile_picture: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       }
     },
     {

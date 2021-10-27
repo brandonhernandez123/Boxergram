@@ -27,19 +27,17 @@ const Login = async (req, res) => {
   }
 }
 
-const Register = async (req, res) => {
+const SignUp = async (req, res) => {
   try {
-    const { email, first_name, last_name, profile_picture, password } = req.body
-    console.log(password)
+    const { email, password, username, profile_picture } = req.body
     let password_digest = await middleware.hashPassword(password)
     const user = await User.create({
       email,
-      first_name,
-      last_name,
-      profile_picture,
-      password_digest
+      password_digest,
+      username,
+      profile_picture
     })
-    res.send(user)
+    res.send({ user })
   } catch (error) {
     throw error
   }
@@ -47,20 +45,20 @@ const Register = async (req, res) => {
 
 const UpdatePassword = async (req, res) => {
   try {
-    const user = await User.findOne({ where: { email: req.body.email } })
+    const { oldPassword, newPassword } = req.body
+    const user = await User.findByPk(req.params.user_id)
     if (
       user &&
       (await middleware.comparePassword(
         user.dataValues.password_digest,
-        req.body.oldPassword
+        oldPassword
       ))
     ) {
-      let password_digest = await middleware.hashPassword(req.body.newPassword)
-
+      let password_digest = await middleware.hashPassword(newPassword)
       await user.update({ password_digest })
-      return res.send({ status: 'Success', msg: 'Password Updated' })
+      return res.send({ status: 'Ok', payload: user })
     }
-    res.status(401).send({ status: 'Error', msg: 'Invalid Credentials' })
+    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
   } catch (error) {
     throw error
   }
@@ -69,21 +67,18 @@ const UpdatePassword = async (req, res) => {
 const CheckSession = async (req, res) => {
   try {
     const { payload } = res.locals
-    // console.log('TTTTT', res.locals)
-    // console.log(payload)
-    // const user = await User.findByPk(payload.id, {
-    //   attributes: ['id', 'email']
-    // })
-    return res.send(payload)
+    const user = await User.findByPk(payload.id, {
+      attributes: ['id', 'username', 'email', 'profile_picture']
+    })
+    res.send(user)
   } catch (error) {
-    console.log('error', error)
     throw error
   }
 }
 
 module.exports = {
   Login,
-  Register,
+  SignUp,
   UpdatePassword,
   CheckSession
 }

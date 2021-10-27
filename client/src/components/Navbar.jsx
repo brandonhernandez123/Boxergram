@@ -1,9 +1,11 @@
 import React from 'react'
 import {Nav, Navbar, Container,Button} from 'react-bootstrap'
+import { useHistory } from 'react-router'
 import NewPost from './NewPost'
 
 
 const Navigation = (props) => {
+  const history = useHistory()
   const [modalShow, setModalShow] = React.useState(false);
 
     return(

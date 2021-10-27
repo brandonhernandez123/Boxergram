@@ -21,6 +21,7 @@ const handleSubmit = async (e) => {
         image: newpost.image,
         userId: props.user.id
     })
+    props.history.push('/feed')
     
     
 }

@@ -15,7 +15,7 @@ function App() {
     false || localStorage.getItem('authenticated')
   )
   const [user, setUser] = useState(null)
-
+  console.log('user:', user)
   const handleLogOut = () => {
     //Reset all auth related state and clear localstorage
     setUser(null)

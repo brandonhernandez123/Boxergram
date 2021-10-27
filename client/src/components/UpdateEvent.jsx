@@ -42,12 +42,12 @@ const handleChangeLocation = (e) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+      <Modal.Header className='newevent'>
+        <Modal.Title  id="contained-modal-title-vcenter">
             Update Event
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className='newevent'>
       <Form onSubmit={onSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Title</Form.Label>
@@ -80,12 +80,12 @@ const handleChangeLocation = (e) => {
      Update location
     </Form.Text>
   </Form.Group>
-  <Button variant="primary" type="submit">
+  <Button variant="danger" type="submit">
     Submit
   </Button>
 </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='newevent'>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
