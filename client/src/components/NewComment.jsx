@@ -11,8 +11,10 @@ const NewComment = (props) => {
     const  [comment, SetComment] = useState({
     comment: '',
     userId: props.user,
-    postId: props.post
+    postId: props.post.id
 })
+
+console.log(props.post.id)
 
 
 
@@ -20,7 +22,7 @@ const NewComment = (props) => {
         const res = await Client.post('/newcomment', {
             comment: comment.comment,
             userId: props.user,
-            postId: props.post
+            postId: props.post.id
         })
     }
 

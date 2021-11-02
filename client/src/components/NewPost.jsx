@@ -8,7 +8,6 @@ import { Modal, Form, Row, Col, Button } from 'react-bootstrap'
 
 const NewPost = (props) => {
 const [newpost, Setnewpost] = useState({
-    title: '',
     caption: '',
     image: '',
     userId: props.user.id
@@ -16,7 +15,6 @@ const [newpost, Setnewpost] = useState({
 
 const handleSubmit = async (e) => {
       const res = await Axios.post(`${BASE_URL}/newpost`, {
-        title: newpost.title,
         caption: newpost.caption,
         image: newpost.image,
         userId: props.user.id
@@ -51,10 +49,6 @@ return(
     </Form.Label>
     <Col sm="10">
     </Col>
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    <Form.Label>Post title</Form.Label>
-    <Form.Control type="input" name='title' value={newpost.title} onChange={handleChange} placeholder="title" />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Image Url</Form.Label>

@@ -65,7 +65,7 @@ const MyProfile = (props) => {
           <Button onClick={()=>DeletePost(index)} variant='danger'>Delete</Button>
         <Card.Img variant="top" src={`${post.image}`} />
         <Card.Body className='newevent'>
-          <Card.Title> {post.title}</Card.Title>
+          {/* <Card.Title> {post.title}</Card.Title> */}
           <Card.Text>
             {post.caption}
           </Card.Text>  
